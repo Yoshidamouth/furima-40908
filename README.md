@@ -23,12 +23,13 @@
 
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ----------- |
-| name               | text       | null: false |
+| name               | string     | null: false |
 | explain            | text       | null: false |
-| category           | string     | null: false |
-| situation          | string     | null: false |
-| shipping_area      | string     | null: false |
-| shipping_days      | string     | null: false |
+| category_id        | integer    | null: false |
+| situation_id       | integer    | null: false |
+| delivery_charge_id | integer    | null: false |
+| shipping_area_id   | integer    | null: false |
+| shipping_days_id   | integer    | null: false |
 | price              | integer    | null: false |
 | user               | references | null: false, foreign_key: true |
 
@@ -62,17 +63,18 @@
 
 - belongs_to :user
 - belongs_to :item
+- has_one :address
 
 ## addresses テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| postcode           | string | null: false |
-| prefectures        | string | null: false |
-| municipalities     | string | null: false |
-| street_address     | string | null: false |
-| building_name      | string |             |
-| phone_number       | string | null: false |
+| Column             | Type    | Options     |
+| ------------------ | ------- | ----------- |
+| postcode           | string  | null: false |
+| prefectures_id     | integer | null: false |
+| municipalities     | string  | null: false |
+| street_address     | string  | null: false |
+| building_name      | string  |             |
+| phone_number       | string  | null: false |
 | order              | references | null: false, foreign_key: true |
 
 ### Association
