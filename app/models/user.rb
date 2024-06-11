@@ -6,7 +6,7 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX =/\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: "Password is invalid. Include both letters and numbers"}
 
-  VALID_NAME_REGEX = /\A[ぁ-んァ-ンー-龠]+\z/
+  VALID_NAME_REGEX = /\A[ぁ-んァ-ヶ一-龠々]+\z/
 
   VALID_KATAKANA_REGEX = /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/
 
