@@ -34,27 +34,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Explain is too long (maximum is 1000 characters)")
       end
       it 'category_idが空では登録できない' do
-        @item.category_id = ''
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it 'situation_idが空では登録できない' do
-        @item.situation_id = ''
+        @item.situation_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Situation can't be blank")
       end
       it 'delivery_charge_idが空では登録できない' do
-        @item.delivery_charge_id = ''
+        @item.delivery_charge_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery charge can't be blank")
       end
       it 'prefecture_idが空では登録できない' do
-        @item.prefecture_id = ''
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it 'shipping_day_idが空では登録できない' do
-        @item.shipping_day_id = ''
+        @item.shipping_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping day can't be blank")
       end
