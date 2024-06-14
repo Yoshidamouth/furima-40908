@@ -10,7 +10,6 @@ class Item < ApplicationRecord
   validates :name, presence: true,length: { maximum: 40 }
   validates :explain, presence: true,length: { maximum: 1000 }
   validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
-  validates :user, presence: true
   validates :category_id, numericality: { other_than: 1 ,message: "can't be blank"} 
   validates :situation_id, numericality: { other_than: 1 ,message: "can't be blank"} 
   validates :delivery_charge_id, numericality: { other_than: 1 ,message: "can't be blank"} 
@@ -18,9 +17,11 @@ class Item < ApplicationRecord
   validates :shipping_day_id, numericality: { other_than: 1 ,message: "can't be blank"} 
   validates :image, presence: true
 
-  has_many :comments
-  belongs_to :user
-  has_one :order
+  # 商品購入機能時実装↓
+
+  # has_many :comments
+  # belongs_to :user
+  # has_one :order
   has_one_attached :image
 
 end

@@ -9,7 +9,7 @@ priceInput.addEventListener("input", () => {
   addTaxDom.innerHTML = addTaxValue.toLocaleString(); 
 
   const profitDom = document.getElementById("profit");
-  const profitValue = Number(inputValue) - addTaxValue;
+  const profitValue = Math.floor(Number(inputValue) - addTaxValue);
   profitDom.innerHTML = profitValue.toLocaleString();
 })
 }
