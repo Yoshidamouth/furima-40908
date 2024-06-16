@@ -284,26 +284,14 @@ a {
 
 .item-name {
   font-size: 2.5vh;
-  color: #000;
 }
 
 .item-price {
   font-size: 1.5vh;
   display: flex;
   justify-content: space-between;
-  flex-direction: column;
 }
 
-.item-price a {
-  color: #000;
-  text-decoration: none;
-}
-
-.item-price-delivery-charge {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .star-btn {
   display: flex;
