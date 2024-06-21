@@ -1,8 +1,9 @@
 class OrdersController < ApplicationController
+  before_action :set_item, only: [:index, :create]
+  before_action :redirect_to_root_path, only: [:index, :create]
 
   def index
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
-    @item = Item.find(params[:item_id])
     @order_address =  OrderAddress.new
   end
 
@@ -11,7 +12,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order_address =  OrderAddress.new(order_params)
     if @order_address.valid?
       pay_item
@@ -36,6 +36,14 @@ class OrdersController < ApplicationController
       card: order_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
+  def redirect_to_root_path
+    redirect_to root_path if @item.order.present? || (current_user && current_user.id == @item.user_id) || current_user.nil?
   end
 
 end
