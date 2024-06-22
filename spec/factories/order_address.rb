@@ -7,7 +7,5 @@ FactoryBot.define do
     street_address {"横浜1-1-1"}
     building_name {"横ビル"}
     phone_number {"08000000000"}
-    item_id { create(:item).id }
-    user_id { create(:user).id }
   end
 end
