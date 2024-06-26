@@ -85,7 +85,7 @@ end
 
 group :production do
   gem 'unicorn', '6.1.0'
-  gem 'rails_12factor'
+  # gem 'rails_12factor'
 end
 
 gem 'devise'
